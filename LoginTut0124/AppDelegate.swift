@@ -14,7 +14,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
 
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: NSDictionary?) -> Bool {
+        
+        Parse.setApplicationId("ylWsc92doMyGrPdBflMmpIoEDoI6j5bBFch3rdnq", clientKey: "4Eh2XrRdEz2R1vDSaTdp3UamQsvkTWhVlnzMoLZC")
+        
+        var object = PFObject(className: "testDataClass")
+        object.addObject("iOSBlog", forKey: "websiteUrl")
+        object.addObject("Five", forKey: "websiteRating")
+        object.save()
+        
         // Override point for customization after application launch.
         return true
     }
